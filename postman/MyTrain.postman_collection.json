@@ -1,0 +1,1179 @@
+{
+	"info": {
+		"_postman_id": "43561855-04cb-43ab-ba1a-99bc0eafc56b",
+		"name": "MyTrain",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14087946"
+	},
+	"item": [
+		{
+			"name": "Okta API",
+			"item": [
+				{
+					"name": "Create User with Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS 009UOidiTZ5UERmVqtxqawPOr_e6wSomZGDo7a22VA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"profile\": {\n    \"firstName\": \"Pranay\",\n    \"lastName\": \"Mandapati\",\n    \"email\": \"pranaymandapati@gmail.com\",\n    \"login\": \"pranaymandapati@gmail.com\"\n  },\n  \"credentials\": {\n    \"password\" : { \"value\": \"Test123456\" }\n  }\n}"
+						},
+						"url": {
+							"raw": "https://dev-32136484-admin.okta.com/api/v1/users?activate=true",
+							"protocol": "https",
+							"host": [
+								"dev-32136484-admin",
+								"okta",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							],
+							"query": [
+								{
+									"key": "activate",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS 009UOidiTZ5UERmVqtxqawPOr_e6wSomZGDo7a22VA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"oldPassword\": { \"value\": \"Test123456\" },\n  \"newPassword\": { \"value\": \"Mulesoft@123\" }\n}"
+						},
+						"url": {
+							"raw": "https://dev-32136484-admin.okta.com/api/v1/users/pranaymandapati@gmail.com/credentials/change_password",
+							"protocol": "https",
+							"host": [
+								"dev-32136484-admin",
+								"okta",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"pranaymandapati@gmail.com",
+								"credentials",
+								"change_password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot Password with Email Factor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"isaa@gmail.com\",\n  \"factorType\": \"EMAIL\",\n  \"relayState\": \"/myapp/some/deep/link/i/want/to/return/to\"\n}"
+						},
+						"url": {
+							"raw": "https://dev-32136484-admin.okta.com/api/v1/authn/recovery/password",
+							"protocol": "https",
+							"host": [
+								"dev-32136484-admin",
+								"okta",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authn",
+								"recovery",
+								"password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Primary Authentication",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS 009UOidiTZ5UERmVqtxqawPOr_e6wSomZGDo7a22VA",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"pranaymandapati@gmail.com\",\n  \"password\": \"Test123456\",\n  \"options\": {\n    \"multiOptionalFactorEnroll\": false,\n    \"warnBeforePasswordExpired\": false\n  }  \n}"
+						},
+						"url": {
+							"raw": "https://dev-32136484-admin.okta.com/api/v1/authn",
+							"protocol": "https",
+							"host": [
+								"dev-32136484-admin",
+								"okta",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authn"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Session with Session Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS 009UOidiTZ5UERmVqtxqawPOr_e6wSomZGDo7a22VA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"sessionToken\": \"20111q_rxg6Wv_V9alrHB81CKOsExoWsKFvvbURNMQO5xaX0qEZq6Tj\"\n}"
+						},
+						"url": {
+							"raw": "https://dev-32136484-admin.okta.com/api/v1/sessions?additionalFields=cookieToken",
+							"protocol": "https",
+							"host": [
+								"dev-32136484-admin",
+								"okta",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"sessions"
+							],
+							"query": [
+								{
+									"key": "additionalFields",
+									"value": "cookieToken"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validate Session",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS 009UOidiTZ5UERmVqtxqawPOr_e6wSomZGDo7a22VA"
+							}
+						],
+						"url": {
+							"raw": "https://dev-32136484-admin.okta.com/api/v1/sessions/102JIhv3tKHSrWG2ACZvMB0KA",
+							"protocol": "https",
+							"host": [
+								"dev-32136484-admin",
+								"okta",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"sessions",
+								"102JIhv3tKHSrWG2ACZvMB0KA"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clear Session",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS 009UOidiTZ5UERmVqtxqawPOr_e6wSomZGDo7a22VA"
+							}
+						],
+						"url": {
+							"raw": "https://dev-32136484-admin.okta.com/api/v1/sessions/102JIhv3tKHSrWG2ACZvMB0KA",
+							"protocol": "https",
+							"host": [
+								"dev-32136484-admin",
+								"okta",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"sessions",
+								"102JIhv3tKHSrWG2ACZvMB0KA"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Primary Authentication Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS 009UOidiTZ5UERmVqtxqawPOr_e6wSomZGDo7a22VA",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"pranaymandapati@gmail.com\",\n  \"password\": \"Test123456\",\n  \"options\": {\n    \"multiOptionalFactorEnroll\": false,\n    \"warnBeforePasswordExpired\": false\n  }  \n}"
+						},
+						"url": {
+							"raw": "https://dev-32136484-admin.okta.com/api/v1/authn",
+							"protocol": "https",
+							"host": [
+								"dev-32136484-admin",
+								"okta",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authn"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DB Sapi",
+			"item": [
+				{
+					"name": "InsertNewUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"user_id\":  \"a1322321\",\r\n\t\"email_id\": \"adapt@test.com\",\r\n\t\"status_type_id\":   0,\r\n\t\"first_name\":   \"paak\",\r\n\t\"last_name\":    \"iasj\",\r\n\t\"phone_number\": \"+911234567890\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_usersBy_subscription_creationTime",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/user?creationTime=2022-11-06 18:48:00",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"user"
+							],
+							"query": [
+								{
+									"key": "creationTime",
+									"value": "2022-11-06 18:48:00"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/user/003edfg",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"user",
+								"003edfg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUser",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"user_id\":  \"a132232\",\r\n\t\"email_id\": \"ada@test.com\",\r\n\t\"status_type_id\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/user/003edfg",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"user",
+								"003edfg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_subscriptions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/subscription",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"subscription"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "00u3xqc1eirG6ivuH5d7",
+									"disabled": true
+								},
+								{
+									"key": "from_location",
+									"value": "ABC",
+									"disabled": true
+								},
+								{
+									"key": "to_location",
+									"value": "DEF",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InsertNewSubscription",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"user_id\": \"a1322321\",\r\n\t\"status_type_id\": 1,\r\n\t\"source_location\": \"JAX\",\r\n\t\"destination_location\": \"BCK\",\r\n\t\"from_time\": \"07:00:00\",\r\n\t\"to_time\": \"09:00:00\",\r\n\t\"notify_time\": 30\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/subscription",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"subscription"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSubscription",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/subscription/51",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"subscription",
+								"51"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateSubscription",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"user_id\": \"a1322321\",\r\n\t\"status_type_id\": 0,\r\n\t\"source_location\": \"BSK\",\r\n\t\"destination_location\": \"BCK\",\r\n\t\"from_time\": \"06:00:00\",\r\n\t\"to_time\": \"09:00:00\",\r\n\t\"notify_time\": 30\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/subscription/5146",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"subscription",
+								"5146"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteSubscription",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/subscription/5144",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"subscription",
+								"5144"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InsertAlert",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"subscription_id\" : 1322321,\r\n    \"delay_flag\" : \"DELAYED\",\r\n    \"status\" : \"SENT\",\r\n    \"notification_failure_details\" : \"reason_details\",\r\n    \"delay_time\" : 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/alert",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"alert"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Okta Sapi",
+			"item": [
+				{
+					"name": "newUser",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS 009UOidiTZ5UERmVqtxqawPOr_e6wSomZGDo7a22VA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"pavan\",\r\n    \"lastName\": \"uppalapati\",\r\n    \"email\": \"pavan@gmail.com\",\r\n    \"password\" : \"Mulesoft@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/api/newUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"newUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n        \"email\": \"pavan@gmail.com\",\r\n        \"password\": \"Test123456\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "changePassword",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS 009UOidiTZ5UERmVqtxqawPOr_e6wSomZGDo7a22VA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"pavan@gmail.com\",\r\n    \"oldPassword\": \"Mulesoft@123\",\r\n    \"newPassword\" : \"Test123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/api/login/changePassword",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"login",
+								"changePassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forgetPassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"pavan@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/api/forgetPassword",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"forgetPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createSession",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS 009UOidiTZ5UERmVqtxqawPOr_e6wSomZGDo7a22VA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sessionToken\" : \"201114lFpsXcED47YfxHXVzcBQwpubm88nnAmkkAO3ZUGr9dGzbO9uh\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/api/session",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"session"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "validateSession",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS 009UOidiTZ5UERmVqtxqawPOr_e6wSomZGDo7a22VA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8083/api/session/102uMKaYWlvQpuTnrUFj4DKUw",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"session",
+								"102uMKaYWlvQpuTnrUFj4DKUw"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteSession",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS 009UOidiTZ5UERmVqtxqawPOr_e6wSomZGDo7a22VA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8083/api/session/102oC5ZOOffSwGY_iVrSUBVfQ",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"session",
+								"102oC5ZOOffSwGY_iVrSUBVfQ"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "nrTrain Sapi",
+			"item": [
+				{
+					"name": "getTrains",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numRows\" : 20,\r\n    \"sourceLocationCode\" : \"SFO\",\r\n    \"destinationLocationCode\": \"FST\",\r\n    \"filterType\": \"to\",\r\n    \"timeOffset\": 0,\r\n    \"timeWindow\": 120\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/getTrains",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"getTrains"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "nr-EAPI",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"pavan123.uv5@gmail.com\",\r\n  \"first_name\": \"pavan\",\r\n  \"last_name\": \"kalyan\",\r\n  \"phone_number\": \"+911234567890\",\r\n  \"password\": \"7s6dfsd8s7d\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8084/api/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"api",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loginUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"pavan123.uv5@gmail.com\",\r\n  \"password\": \"Mulesoft@123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8084/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "fsdsdfdsfsdf",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"pavan123.uv5@gmail.com\",\r\n  \"oldPassword\": \"Mulesoft@123\",\r\n  \"newPassword\": \"Mulesoft@123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8084/api/login/changePassword",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"api",
+								"login",
+								"changePassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forgetPassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"pavan.uv5@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8084/api/forgetPassword",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"api",
+								"forgetPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email_id\": \"pavan123.uv5@gmail.com\",\r\n  \"status_type_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8084/api/user/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"api",
+								"user",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createSubscription",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"pavan123.uv5@gmail.com\",\r\n  \"status_type_id\": 1,\r\n  \"source_location\": \"JAX\",\r\n  \"destination_location\": \"BCK\",\r\n  \"from_time\": \"08:00:00\",\r\n  \"to_time\": \"09:00:00\",\r\n  \"notify_time\": 30\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8084/api/subscription/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"api",
+								"subscription",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_Subscription",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"pavan123.uv5@gmail.com\",\r\n  \"subscription_id\": \"5173\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8084/api/subscription",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"api",
+								"subscription"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateSubscription",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"subscription_id\": \"5173\",\r\n  \"email\": \"pavan123.uv5@gmail.com\",\r\n  \"status_type_id\": 1,\r\n  \"source_location\": \"JAX\",\r\n  \"destination_location\": \"BCK\",\r\n  \"from_time\": \"08:00:00\",\r\n  \"to_time\": \"11:00:00\",\r\n  \"notify_time\": 15\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8084/api/subscription/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"api",
+								"subscription",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Subscription",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"pavan123.uv5@gmail.com\",\r\n  \"subscription_id\": \"5173\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8084/api/subscription/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"api",
+								"subscription",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"pavan123.uv5@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8084/api/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
